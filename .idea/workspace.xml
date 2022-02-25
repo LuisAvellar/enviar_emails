@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2891fa1f-e5eb-4bbf-bc7d-e4616b25d7cd" name="Changes" comment="" />
+    <list default="true" id="2891fa1f-e5eb-4bbf-bc7d-e4616b25d7cd" name="Changes" comment="Primeiro push">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enviar_e-mails/outros/envia.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enviar_e-mails/outros/geckodriver.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enviar_e-mails/outros/imagem.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enviar_e-mails/outros/teste.py" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +47,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/enviar_e-mails" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -186,7 +193,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main (1)" />
-        <item itemvalue="Python.teste (1)" />
         <item itemvalue="Python.verificacao_socios" />
         <item itemvalue="Python.eee" />
         <item itemvalue="Python.teste" />
@@ -215,15 +221,8 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/enviar_e-mails/funcoes/envio_email.py</url>
-          <line>14</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Primeiro push" />
+    <option name="LAST_COMMIT_MESSAGE" value="Primeiro push" />
   </component>
 </project>
