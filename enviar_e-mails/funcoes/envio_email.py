@@ -7,11 +7,9 @@ from datetime import datetime
 
 
 def enviar_emails(lista, configuracoes):
-    tam = len(lista)
     meu_email = str(configuracoes['meu_email'])
+    mensagens = []
     configuracoes['senha'] = input(f'Digite a senha de {meu_email}:')
-    print('Enviando...')
-    lista_erros = []
     for i, z in enumerate(lista):
         if z['vencimento'] == 'a vencer':
             z['caminho_template'] = 'static/template_socios_vencendo.html'
@@ -22,53 +20,69 @@ def enviar_emails(lista, configuracoes):
         else:
             continue
         mensagem = substituir_no_email(z, configuracoes['email_from'])
-        resposta = logar_enviar(mensagem, configuracoes, z)
-        if resposta:
-            lista_erros.append(resposta)
-        progresso = (i + 1) * 100 / tam
-        print("\r", end="")
-        print(f"{progresso:.0f}%", end="")
-    print("\nConcluido")
-    if not lista_erros:
-        return
-    imprimir_erros(lista_erros)
-    return
+        if mensagem:
+            mensagens.append({'e-mail': z['e-mail'], 'nome': z['nome'], 'mensagem': mensagem})
+    erro_login, erros_envios = logar_enviar(configuracoes, mensagens)  # Tentar tirar do for e enviar todos de uma vez
+    if erro_login or erros_envios:
+        imprimir_erros(erro_login, erros_envios)
 
 
-def substituir_no_email(lista, email_from):
-    with open(lista['caminho_template'], 'r') as html:
+def substituir_no_email(lista_mensagem, email_de):
+    with open(lista_mensagem['caminho_template'], 'r') as html:
         template = Template(html.read())
-        corpo_msg = template.substitute(nome=lista['nome'], data=lista['data_vencimento'])
+        corpo_msg = template.substitute(nome=lista_mensagem['nome'], data=lista_mensagem['data_vencimento'])
     msg = MIMEMultipart()
-    msg['from'] = email_from
-    msg['to'] = lista['e-mail']
-    msg['subject'] = lista['assunto']
+    msg['from'] = email_de
+    msg['to'] = lista_mensagem['e-mail']
+    msg['subject'] = lista_mensagem['assunto']
     corpo = MIMEText(corpo_msg, 'html')
     msg.attach(corpo)
     return msg
 
 
-def logar_enviar(msg, configuracoes, z):
+def logar_enviar(configuracoes, mensagens):
     with smtplib.SMTP(host=configuracoes['host'], port=configuracoes['porta']) as smtp:
         try:
             smtp.ehlo()
             smtp.starttls()
             smtp.login(configuracoes['meu_email'], configuracoes['senha'])
-            smtp.send_message(msg)
-            return False
+            erro_envio = enviar(mensagens, smtp)
+            return 0, erro_envio
+        except Exception as e:
+            return 'Erro de login', 0
+
+
+def enviar(mensagens, smtp):
+    lista_erros = []
+    print('Enviando...')
+    tam = len(mensagens)
+    for i, mensagem in enumerate(mensagens):
+        erro = []
+        try:
+            smtp.send_message(mensagem['mensagem'])
         except Exception as e:
             print("\r", end="")
-            nome = z['nome']
-            email = z['e-mail']
+            nome = mensagem['nome']
+            email = mensagem['e-mail']
             erro = [nome, email]
-            return erro
+        if erro:
+            lista_erros.append(erro)
+        progresso = (i + 1) * 100 / tam
+        print("\r", end="")
+        print(f"{progresso:.0f}%", end="")
+    return lista_erros
 
 
-def imprimir_erros(lista_erros):
-    print('Os e-mail a seguir não foram enviados:')
-    for erros in lista_erros:
-        print(f'Nome: {erros[0]}     e-mail: {erros[1]}')
-    data_atual = datetime.now().strftime('%H-%M-%S--%d-%m-%Y')
-    with open(f'emails_nao_enviados_{data_atual}.csv', 'w', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerows(lista_erros)
+def imprimir_erros(erros_login, erros_envios):
+    if erros_login:
+        print('Erro no login')
+    if erros_envios:
+        print('\nOs e-mail a seguir não foram enviados:')
+        print('Nome   ---   e-mail')
+        for erros in erros_envios:
+            print(f'{erros[0]}   ---   {erros[1]}')
+        data_atual = datetime.now().strftime('%H-%M-%S--%d-%m-%Y')
+        with open(f'emails_nao_enviados_{data_atual}.csv', 'w', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerows(erros_envios)
+        print(f'\nRelatório de erros gravado no arquivo:\nemails_nao_enviados_{data_atual}.csv')
