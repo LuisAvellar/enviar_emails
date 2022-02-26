@@ -48,7 +48,7 @@ def logar_enviar(configuracoes, mensagens):
             smtp.login(configuracoes['meu_email'], configuracoes['senha'])
             erro_envio = enviar(mensagens, smtp)
             return 0, erro_envio
-        except Exception as e:
+        except Exception:
             return 'Erro de login', 0
 
 
@@ -60,7 +60,7 @@ def enviar(mensagens, smtp):
         erro = []
         try:
             smtp.send_message(mensagem['mensagem'])
-        except Exception as e:
+        except Exception:
             print("\r", end="")
             nome = mensagem['nome']
             email = mensagem['e-mail']

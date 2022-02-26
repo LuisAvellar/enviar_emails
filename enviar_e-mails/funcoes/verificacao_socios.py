@@ -2,8 +2,12 @@ from datetime import datetime, timedelta
 import csv
 
 
-def verificar_emails():
-    lista, dados, anuidade = importacao()
+def verificar_emails(configuracoes):
+    checagem = input('Já atualizou as planilhas de dados para este mês?'
+                     '\nDigite "y" para continuar:')
+    if checagem.lower() != 'y':
+        return 0
+    lista, dados, anuidade = importacao(configuracoes)
     erros = []
     lista_verificacao = []
     for z in lista:
@@ -31,9 +35,8 @@ def verificar_emails():
     return lista_verificacao
 
 
-def importacao(caminho_anuidades='Planilha sem título - Página1.csv', cabecalho_anuidade=('pagamento', 'inicio', 'fim'),
-               caminho_dados='userlist.csv'):
-    with open(caminho_dados, 'r') as arquivo:
+def importacao(configuracoes):
+    with open(configuracoes['caminho_dados'], 'r') as arquivo:
         dados_socios = [x for x in csv.reader(arquivo)]
     cabecalho_dados = dados_socios.pop(0)
     coluna_ref = 3  # Posição do nome de ref na tabela
@@ -49,11 +52,11 @@ def importacao(caminho_anuidades='Planilha sem título - Página1.csv', cabecalh
         lista_socios.append(z)
         dicto_dados[z] = dicto_temp
 
-    with open(caminho_anuidades, 'r') as arquivo:
+    with open(configuracoes['caminho_anuidades'], 'r') as arquivo:
         dados_anuidade = [x for x in csv.reader(arquivo)]
     dicto_anuidades = {}
     for x in dados_anuidade:
         z = x.pop(0)
-        dicto_temp = {cabecalho_anuidade[i]: y for i, y in enumerate(x)}
+        dicto_temp = {configuracoes['cabecalho_anuidade'][i]: y for i, y in enumerate(x)}
         dicto_anuidades[z] = dicto_temp
     return lista_socios, dicto_dados, dicto_anuidades
