@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2891fa1f-e5eb-4bbf-bc7d-e4616b25d7cd" name="Changes" comment="mais um push">
-      <change beforePath="$PROJECT_DIR$/enviar_e-mails/Planilha sem título - Página1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enviar_e-mails/funcoes/verificacao_socios.py" beforeDir="false" afterPath="$PROJECT_DIR$/enviar_e-mails/funcoes/verificacao_socios.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/enviar_e-mails/userlist.csv" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/enviar_e-mails/funcoes/anuidades.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enviar_e-mails/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/enviar_e-mails/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645884010484</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="mais um push">
+      <created>1645885379976</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1645885379976</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,13 +270,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/enviar_e-mails/main.py</url>
-          <line>5</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
