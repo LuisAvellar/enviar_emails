@@ -8,12 +8,14 @@ def verificar_emails():
     lista_verificacao = []
     for z in lista:
         try:
-            x = datetime.strptime(anuidade[z]['fim'], '%Y-%m-%d') - datetime.now()
+            data_vencimento = datetime.strptime(anuidade[z]['fim'], '%Y-%m-%d')
+            x = data_vencimento - datetime.now()
+            data_vencimento = data_vencimento.strftime("%d/%m/%Y")
             anuidade[z]['dias_vencer'] = x
             if x > timedelta(days=30):
                 continue
             dados_vencimento = {'nome': z, 'status': dados[z]['First Role'], 'e-mail': dados[z]['Email'],
-                                'data_vencimento': anuidade[z]['fim']
+                                'data_vencimento': data_vencimento
                                 }
             if x > timedelta(days=0):
                 dados_vencimento['vencimento'] = 'a vencer'

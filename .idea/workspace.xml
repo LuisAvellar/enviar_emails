@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2891fa1f-e5eb-4bbf-bc7d-e4616b25d7cd" name="Changes" comment="Primeiro push">
+    <list default="true" id="2891fa1f-e5eb-4bbf-bc7d-e4616b25d7cd" name="Changes" comment="segundo push">
+      <change afterPath="$PROJECT_DIR$/enviar_e-mails/configuracoes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/enviar_e-mails/outros/envia.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enviar_e-mails/outros/geckodriver.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enviar_e-mails/outros/imagem.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enviar_e-mails/outros/teste.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enviar_e-mails/Planilha sem título - Página1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/enviar_e-mails/Planilha sem título - Página1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enviar_e-mails/funcoes/configuracoes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enviar_e-mails/funcoes/envio_email.py" beforeDir="false" afterPath="$PROJECT_DIR$/enviar_e-mails/funcoes/envio_email.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enviar_e-mails/funcoes/verificacao_socios.py" beforeDir="false" afterPath="$PROJECT_DIR$/enviar_e-mails/funcoes/verificacao_socios.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enviar_e-mails/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/enviar_e-mails/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enviar_e-mails/outros/Planilha sem título - Página1 - testes.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enviar_e-mails/outros/lista_dados_socios.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enviar_e-mails/static/template.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enviar_e-mails/static/template_socios_atrasado.html" beforeDir="false" afterPath="$PROJECT_DIR$/enviar_e-mails/static/template_socios_atrasado.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enviar_e-mails/static/template_socios_vencendo.html" beforeDir="false" afterPath="$PROJECT_DIR$/enviar_e-mails/static/template_socios_vencendo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enviar_e-mails/userlist.csv" beforeDir="false" afterPath="$PROJECT_DIR$/enviar_e-mails/userlist.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,8 +66,8 @@
       <recent name="$PROJECT_DIR$/Criador_CPF" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/enviar_e-mails/outros" />
       <recent name="$PROJECT_DIR$/enviar_e-mails" />
+      <recent name="$PROJECT_DIR$/enviar_e-mails/outros" />
       <recent name="$PROJECT_DIR$/enviar_e-mails/static" />
       <recent name="$PROJECT_DIR$/enviar_e-mails/funcoes" />
     </key>
@@ -208,6 +217,21 @@
       <option name="presentableId" value="Default" />
       <updated>1642461429501</updated>
     </task>
+    <task id="LOCAL-00001" summary="segundo push">
+      <created>1645813581700</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1645813581701</updated>
+    </task>
+    <task id="LOCAL-00002" summary="segundo push">
+      <created>1645814049666</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1645814049666</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -223,6 +247,25 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Primeiro push" />
-    <option name="LAST_COMMIT_MESSAGE" value="Primeiro push" />
+    <MESSAGE value="segundo push" />
+    <option name="LAST_COMMIT_MESSAGE" value="segundo push" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/enviar_e-mails/main.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
