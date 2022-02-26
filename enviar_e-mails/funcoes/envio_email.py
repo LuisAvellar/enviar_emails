@@ -21,7 +21,7 @@ def enviar_emails(lista, configuracoes):
             z['assunto'] = 'Aviso de vencimento da anuidade.'
         else:
             continue
-        mensagem = substituir_no_email(z, configuracoes['meu_email'])
+        mensagem = substituir_no_email(z, configuracoes['email_from'])
         resposta = logar_enviar(mensagem, configuracoes, z)
         if resposta:
             lista_erros.append(resposta)
@@ -35,12 +35,12 @@ def enviar_emails(lista, configuracoes):
     return
 
 
-def substituir_no_email(lista, meu_email):
+def substituir_no_email(lista, email_from):
     with open(lista['caminho_template'], 'r') as html:
         template = Template(html.read())
         corpo_msg = template.substitute(nome=lista['nome'], data=lista['data_vencimento'])
     msg = MIMEMultipart()
-    msg['from'] = meu_email
+    msg['from'] = email_from
     msg['to'] = lista['e-mail']
     msg['subject'] = lista['assunto']
     corpo = MIMEText(corpo_msg, 'html')
