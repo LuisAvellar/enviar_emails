@@ -3,6 +3,7 @@ from classes.anuidades import Anuidades
 
 verificacao = Anuidades(configuracoes)
 verificacao.verificar_emails()
+verificacao.imprimir_lista_na_tela()
 verificacao.enviar_emails()
 
 # from funcoes.verificacao_socios import verificar_emails

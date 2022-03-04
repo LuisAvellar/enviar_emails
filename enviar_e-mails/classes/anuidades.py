@@ -51,6 +51,10 @@ class Anuidades:
             except KeyError as e:
                 self.erros.append([z, e])
 
+    def imprimir_lista_na_tela(self):
+        for i in self.lista_verificacao:
+            print(i)
+
     def _importacao(self):
         with open(self.caminho_dados, 'r') as arquivo:
             dados_socios = [x for x in csv.reader(arquivo)]
@@ -73,7 +77,7 @@ class Anuidades:
         dicto_anuidades = {}
         for x in dados_anuidade:
             z = x.pop(0)
-            dicto_temp = {self.cabecalho_anuidade[i]: y for i, y in enumerate(x)}
+            dicto_temp = {self.cabecalho_anuidade[i]: y for i, y in enumerate(x) if y}
             dicto_anuidades[z] = dicto_temp
         return lista_socios, dicto_dados, dicto_anuidades
 
@@ -141,8 +145,8 @@ class Anuidades:
         self.erros_envio = lista_erros
 
     def imprimir_erros(self):
-        if self.erros_login:
-            print('Erro no login')
+        if self.erro_login:
+            print('Erro de login')
         if self.erros_envio:
             print('\nOs e-mail a seguir não foram enviados:')
             print('Nome   ---   e-mail')
